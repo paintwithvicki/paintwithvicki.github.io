@@ -12,7 +12,21 @@
       text-align: center;
     }
 
-    /* TOP NAV */
+    /* LOGO */
+    .logo {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      z-index: 2000;
+    }
+
+    .logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 6px;
+    }
+
+    /* NAV */
     .navbar {
       position: fixed;
       top: 0;
@@ -68,7 +82,7 @@
       font-weight: bold;
     }
 
-    /* ZOOM OVERLAY */
+    /* ZOOM */
     .overlay {
       position: fixed;
       top: 0;
@@ -88,7 +102,7 @@
       border-radius: 10px;
     }
 
-    /* BACK BUTTON (floating) */
+    /* BACK BUTTON */
     .back-btn {
       position: fixed;
       bottom: 20px;
@@ -103,29 +117,17 @@
       z-index: 1000;
     }
 
-    /* BOTTOM NAV */
-    .bottom-nav {
-      margin: 60px 0;
-    }
-
-    .bottom-nav a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 16px;
-      background: white;
-      color: black;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
   </style>
 </head>
 
 <body>
 
-<!-- TOP NAV -->
+<!-- LOGO -->
+<div class="logo">
+  <img src="https://via.placeholder.com/45" alt="Logo">
+</div>
+
+<!-- NAV -->
 <div class="navbar">
   <a href="index.html">Home</a>
   <a href="gallery.html">Shop</a>
@@ -133,7 +135,6 @@
 
 <h1>Shop Paintings</h1>
 
-<!-- GRID -->
 <div class="grid">
 
   <div class="card" onclick="zoom(this)">
@@ -156,26 +157,15 @@
     <p>Painting 4</p>
   </div>
 
-  <div class="card" onclick="zoom(this)">
-    <img src="https://via.placeholder.com/400">
-    <p>Painting 5</p>
-  </div>
-
 </div>
-
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-  <a href="index.html">Home</a>
-  <a href="#top">Back to Top</a>
-</div>
-
-<!-- BACK BUTTON -->
-<a class="back-btn" href="index.html">← Back</a>
 
 <!-- ZOOM -->
 <div class="overlay" id="overlay" onclick="closeZoom()">
   <img id="zoomImg">
 </div>
+
+<!-- BACK BUTTON -->
+<a class="back-btn" href="index.html">← Back</a>
 
 <script>
   function zoom(el) {
