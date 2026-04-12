@@ -6,150 +6,68 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #1b3563;
+      font-family: Georgia, serif;
+      background-color: #162f55;
+      color: #f4f4f4;
+    }
+
+    /* NAV */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 14px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+    }
+
+    .navbar a {
       color: white;
-    }
-
-    /* HEADER WITH POLKA DOTS */
-    header {
-      position: relative;
-      text-align: center;
-      padding: 70px 20px;
-      font-size: 42px;
+      text-decoration: none;
       font-weight: bold;
-
-      background-color: #1b3563;
-      background-image:
-        radial-gradient(circle, white 6px, transparent 7px),
-        radial-gradient(circle, rgba(255,255,255,0.5) 3px, transparent 4px);
-      background-size: 60px 60px;
-      background-position: 0 0, 30px 30px;
-
-      border-bottom: 1px solid rgba(255,255,255,0.2);
     }
 
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-
-    .logo img {
-      width: 85px;
+    /* HERO */
+    header {
+      text-align: center;
+      padding: 140px 20px 60px;
+      font-size: 52px;
+      letter-spacing: 2px;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.7) 5px, transparent 6px);
+      background-size: 75px 75px;
     }
 
     .tagline {
       text-align: center;
-      font-size: 26px;
-      margin: 40px 20px;
+      font-size: 22px;
+      opacity: 0.9;
+      margin-top: 10px;
     }
 
     /* ABOUT */
-    .about-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 70px;
-      gap: 50px;
-      flex-wrap: wrap;
-    }
-
-    .about-text {
-      flex: 1;
-      min-width: 300px;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .about-image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .about-image img {
-      width: 500px;
-      max-width: 100%;
-      border-radius: 14px;
-    }
-
-    /* BANNER */
-    .banner {
-      background: white;
-      color: black;
+    .about {
+      max-width: 850px;
+      margin: 80px auto;
+      padding: 0 20px;
       text-align: center;
-      padding: 45px;
-      font-size: 30px;
-      font-weight: bold;
-    }
-
-    /* GALLERY PREVIEW */
-    .gallery-preview {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 50px;
-    }
-
-    .gallery-preview img {
-      width: 190px;
-      border-radius: 10px;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    .gallery-preview img:hover {
-      transform: scale(1.06);
+      font-size: 20px;
+      line-height: 1.8;
     }
 
     /* BUTTON */
-    .button-container {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
     .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
       background: white;
       color: black;
-      padding: 15px 32px;
       text-decoration: none;
-      border-radius: 7px;
-      font-size: 18px;
+      border-radius: 6px;
       font-weight: bold;
-    }
-
-    /* SCROLL REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1s ease;
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ZOOM OVERLAY */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-    }
-
-    .overlay img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
     }
 
   </style>
@@ -157,94 +75,26 @@
 
 <body>
 
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Shop</a>
+</div>
+
 <header>
-  <div class="logo">
-    <img src="https://via.placeholder.com/85">
-  </div>
   Vicki Paulus Art
+  <div class="tagline">Original watercolor & acrylic works</div>
 </header>
 
-<div class="tagline reveal">
-  From seeing to creating emotion on canvas
+<div class="about">
+  I fell in love with the ability to capture beauty in nature, special moments in time, and things simply imagined, then transfer them to the canvas.  
+  <br><br>
+  I love teaching and sharing art with others, helping new artists grow their own creative journey.
+  <br><br>
+
+  <a class="btn" href="gallery.html">Enter Gallery</a>
 </div>
 
-<div class="about-container reveal">
-
-  <div class="about-text">
-    <p>
-      I fell in love with the ability to capture beauty in nature, special moments in time, and things simply imagined, then transfer them to the canvas. The process and capabilities of watercolor painting enchanted me, and the methods of acrylic continued to increase the possibilities. Not only do I enjoy the creation of art, I love to spread the knowledge and watch new artists develop with their journey.
-    </p>
-
-    <ul>
-      <li>Watercolor workshop instructor</li>
-      <li>Teaching children's creative art class</li>
-      <li>Member of Cumming Art Center</li>
-    </ul>
-
-    <p>
-      Pictured with me is "Heaven Kisses Earth", acrylic on canvas.
-    </p>
-  </div>
-
-  <div class="about-image">
-    <img src="https://via.placeholder.com/500">
-  </div>
-
-</div>
-
-<div class="banner reveal">
-  Don't just see.<br>feel.
-</div>
-
-<div class="gallery-preview reveal">
-
-  <img src="https://via.placeholder.com/190">
-  <img src="https://via.placeholder.com/190">
-  <img src="https://via.placeholder.com/190">
-  <img src="https://via.placeholder.com/190">
-  <img src="https://via.placeholder.com/190">
-
-</div>
-
-<div class="button-container reveal">
-  <a href="gallery.html" class="btn">See All Paintings</a>
-</div>
-
-<!-- ZOOM OVERLAY -->
-<div class="overlay" id="overlay" onclick="closeZoom()">
-  <img id="zoomImg">
-</div>
-
-<script>
-  /* SCROLL REVEAL */
-  const elements = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  });
-
-  elements.forEach(el => observer.observe(el));
-
-  /* ZOOM FUNCTION */
-  const images = document.querySelectorAll('.gallery-preview img');
-  const overlay = document.getElementById('overlay');
-  const zoomImg = document.getElementById('zoomImg');
-
-  images.forEach(img => {
-    img.addEventListener('click', () => {
-      zoomImg.src = img.src;
-      overlay.style.display = 'flex';
-    });
-  });
-
-  function closeZoom() {
-    overlay.style.display = 'none';
-  }
-</script>
-
+</body>
+</html>
 </body>
 </html>
