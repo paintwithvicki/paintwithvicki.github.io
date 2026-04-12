@@ -7,18 +7,26 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #1e3a6d;
+      background-color: #1b3563;
       color: white;
     }
 
+    /* HEADER WITH POLKA DOTS */
     header {
       position: relative;
       text-align: center;
-      padding: 60px 20px;
+      padding: 70px 20px;
       font-size: 42px;
       font-weight: bold;
-      background-image: radial-gradient(white 2px, transparent 2px);
-      background-size: 20px 20px;
+
+      background-color: #1b3563;
+      background-image:
+        radial-gradient(circle, white 6px, transparent 7px),
+        radial-gradient(circle, rgba(255,255,255,0.5) 3px, transparent 4px);
+      background-size: 60px 60px;
+      background-position: 0 0, 30px 30px;
+
+      border-bottom: 1px solid rgba(255,255,255,0.2);
     }
 
     .logo {
@@ -28,7 +36,7 @@
     }
 
     .logo img {
-      width: 80px;
+      width: 85px;
     }
 
     .tagline {
@@ -37,13 +45,13 @@
       margin: 40px 20px;
     }
 
-    /* ABOUT SECTION UPDATED */
+    /* ABOUT */
     .about-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 60px;
-      gap: 40px;
+      padding: 70px;
+      gap: 50px;
       flex-wrap: wrap;
     }
 
@@ -52,7 +60,6 @@
       min-width: 300px;
       font-size: 18px;
       line-height: 1.6;
-      text-align: left;
     }
 
     .about-image {
@@ -62,9 +69,9 @@
     }
 
     .about-image img {
-      width: 450px;
+      width: 500px;
       max-width: 100%;
-      border-radius: 12px;
+      border-radius: 14px;
     }
 
     /* BANNER */
@@ -72,45 +79,48 @@
       background: white;
       color: black;
       text-align: center;
-      padding: 40px;
-      font-size: 28px;
+      padding: 45px;
+      font-size: 30px;
       font-weight: bold;
     }
 
-    /* GALLERY */
+    /* GALLERY PREVIEW */
     .gallery-preview {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      padding: 40px;
+      padding: 50px;
     }
 
     .gallery-preview img {
-      width: 200px;
+      width: 190px;
       border-radius: 10px;
       transition: 0.3s;
+      cursor: pointer;
     }
 
     .gallery-preview img:hover {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
     /* BUTTON */
     .button-container {
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 70px;
     }
 
     .btn {
       background: white;
       color: black;
-      padding: 15px 30px;
+      padding: 15px 32px;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 7px;
+      font-size: 18px;
+      font-weight: bold;
     }
 
-    /* FADE ONLY WHEN IN VIEW */
+    /* SCROLL REVEAL */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -122,6 +132,26 @@
       transform: translateY(0);
     }
 
+    /* ZOOM OVERLAY */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
   </style>
 </head>
 
@@ -129,7 +159,7 @@
 
 <header>
   <div class="logo">
-    <img src="https://via.placeholder.com/80">
+    <img src="https://via.placeholder.com/85">
   </div>
   Vicki Paulus Art
 </header>
@@ -152,12 +182,12 @@
     </ul>
 
     <p>
-      Pictured with me is "Heaven Kisses Earth", acrylic on canvas, displayed at Northeast Georgia Medical Center, Green Tower, Gainesville, GA.
+      Pictured with me is "Heaven Kisses Earth", acrylic on canvas.
     </p>
   </div>
 
   <div class="about-image">
-    <img src="https://via.placeholder.com/450">
+    <img src="https://via.placeholder.com/500">
   </div>
 
 </div>
@@ -167,18 +197,26 @@
 </div>
 
 <div class="gallery-preview reveal">
-  <img src="https://via.placeholder.com/200">
-  <img src="https://via.placeholder.com/200">
-  <img src="https://via.placeholder.com/200">
-  <img src="https://via.placeholder.com/200">
-  <img src="https://via.placeholder.com/200">
+
+  <img src="https://via.placeholder.com/190">
+  <img src="https://via.placeholder.com/190">
+  <img src="https://via.placeholder.com/190">
+  <img src="https://via.placeholder.com/190">
+  <img src="https://via.placeholder.com/190">
+
 </div>
 
 <div class="button-container reveal">
   <a href="gallery.html" class="btn">See All Paintings</a>
 </div>
 
+<!-- ZOOM OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeZoom()">
+  <img id="zoomImg">
+</div>
+
 <script>
+  /* SCROLL REVEAL */
   const elements = document.querySelectorAll('.reveal');
 
   const observer = new IntersectionObserver(entries => {
@@ -190,6 +228,22 @@
   });
 
   elements.forEach(el => observer.observe(el));
+
+  /* ZOOM FUNCTION */
+  const images = document.querySelectorAll('.gallery-preview img');
+  const overlay = document.getElementById('overlay');
+  const zoomImg = document.getElementById('zoomImg');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      zoomImg.src = img.src;
+      overlay.style.display = 'flex';
+    });
+  });
+
+  function closeZoom() {
+    overlay.style.display = 'none';
+  }
 </script>
 
 </body>
