@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Paintings</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1e3a6d;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      padding: 40px 20px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .gallery img {
+      width: 250px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .back {
+      margin: 40px;
+    }
+
+    .btn {
+      background: white;
+      color: black;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<h1>All Paintings</h1>
+
+<div class="gallery">
+  <img src="https://via.placeholder.com/250">
+  <img src="https://via.placeholder.com/250">
+  <img src="https://via.placeholder.com/250">
+  <img src="https://via.placeholder.com/250">
+  <img src="https://via.placeholder.com/250">
+  <img src="https://via.placeholder.com/250">
+</div>
+
+<div class="back">
+  <a href="index.html" class="btn">Back to Home</a>
+</div>
+
+</body>
+</html>
