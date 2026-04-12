@@ -48,26 +48,61 @@
       margin-top: 10px;
     }
 
-    /* ABOUT */
-    .about {
-      max-width: 850px;
-      margin: 80px auto;
-      padding: 0 20px;
+    /* ENTER BUTTON */
+    .enter {
       text-align: center;
-      font-size: 20px;
-      line-height: 1.8;
+      margin-top: 30px;
     }
 
-    /* BUTTON */
-    .btn {
+    .enter a {
       display: inline-block;
-      margin-top: 30px;
       padding: 14px 28px;
       background: white;
       color: black;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+    }
+
+    /* BOTTOM WHITE BANNER */
+    .banner {
+      background: white;
+      color: black;
+      text-align: center;
+      padding: 45px;
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 80px;
+    }
+
+    /* ABOUT SECTION */
+    .about-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 70px;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+      font-size: 18px;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    .about-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-image img {
+      width: 500px;
+      max-width: 100%;
+      border-radius: 14px;
     }
 
   </style>
@@ -83,18 +118,40 @@
 <header>
   Vicki Paulus Art
   <div class="tagline">Original watercolor & acrylic works</div>
+
+  <div class="enter">
+    <a href="gallery.html">Enter Gallery</a>
+  </div>
 </header>
 
-<div class="about">
-  I fell in love with the ability to capture beauty in nature, special moments in time, and things simply imagined, then transfer them to the canvas.  
-  <br><br>
-  I love teaching and sharing art with others, helping new artists grow their own creative journey.
-  <br><br>
+<!-- BANNER RESTORED -->
+<div class="banner">
+  Don't just see.<br>
+  feel.
+</div>
 
-  <a class="btn" href="gallery.html">Enter Gallery</a>
+<!-- ABOUT SECTION -->
+<div class="about-container">
+
+  <div class="about-text">
+    <p>
+      I fell in love with the ability to capture beauty in nature, special moments in time, and things simply imagined, then transfer them to the canvas. The process and capabilities of watercolor painting enchanted me, and the methods of acrylic continued to increase the possibilities. Not only do I enjoy the creation of art, I love to spread the knowledge and watch new artists develop with their journey.
+    </p>
+
+    <p>
+      - Watercolor workshop instructor<br>
+      - Teaching children's creative art class<br>
+      - Member of Cumming Art Center<br><br>
+
+      Pictured with me is "Heaven Kisses Earth", acrylic on canvas, displayed at Northeast Georgia Medical Center, Green Tower, Gainesville, GA.
+    </p>
+  </div>
+
+  <div class="about-image">
+    <img src="https://via.placeholder.com/500">
+  </div>
+
 </div>
 
 </body>
-</html>
-</body>
-</html>
+</html></html>
