@@ -34,7 +34,7 @@
     /* HERO */
     header {
       text-align: center;
-      padding: 140px 20px 60px;
+      padding: 140px 20px 40px;
       font-size: 52px;
       letter-spacing: 2px;
       background-image: radial-gradient(circle, rgba(255,255,255,0.7) 5px, transparent 6px);
@@ -48,23 +48,25 @@
       margin-top: 10px;
     }
 
-    /* ENTER BUTTON */
+    /* ENTER BUTTON (smaller + lower) */
     .enter {
       text-align: center;
-      margin-top: 30px;
+      margin-top: 60px;
+      margin-bottom: 20px;
     }
 
     .enter a {
       display: inline-block;
-      padding: 14px 28px;
+      padding: 10px 18px;
       background: white;
       color: black;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+      font-size: 14px;
     }
 
-    /* BOTTOM WHITE BANNER */
+    /* BANNER */
     .banner {
       background: white;
       color: black;
@@ -75,7 +77,7 @@
       margin-top: 80px;
     }
 
-    /* ABOUT SECTION */
+    /* ABOUT */
     .about-container {
       display: flex;
       justify-content: space-between;
@@ -105,6 +107,18 @@
       border-radius: 14px;
     }
 
+    /* SCROLL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
   </style>
 </head>
 
@@ -115,7 +129,7 @@
   <a href="gallery.html">Shop</a>
 </div>
 
-<header>
+<header class="reveal">
   Vicki Paulus Art
   <div class="tagline">Original watercolor & acrylic works</div>
 
@@ -124,14 +138,12 @@
   </div>
 </header>
 
-<!-- BANNER RESTORED -->
-<div class="banner">
+<div class="banner reveal">
   Don't just see.<br>
   feel.
 </div>
 
-<!-- ABOUT SECTION -->
-<div class="about-container">
+<div class="about-container reveal">
 
   <div class="about-text">
     <p>
@@ -153,5 +165,19 @@
 
 </div>
 
+<script>
+  const elements = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  elements.forEach(el => observer.observe(el));
+</script>
+
 </body>
-</html></html>
+</html>
