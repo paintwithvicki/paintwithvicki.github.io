@@ -7,24 +7,20 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #2f5fa3;
+      background-color: #1e3a6d;
       color: white;
     }
 
-    /* HEADER */
     header {
       position: relative;
       text-align: center;
       padding: 60px 20px;
       font-size: 42px;
       font-weight: bold;
-
-      background-color: #2f5fa3;
       background-image: radial-gradient(white 2px, transparent 2px);
       background-size: 20px 20px;
     }
 
-    /* LOGO */
     .logo {
       position: absolute;
       top: 20px;
@@ -35,32 +31,40 @@
       width: 80px;
     }
 
-    /* TAGLINE */
     .tagline {
       text-align: center;
       font-size: 26px;
       margin: 40px 20px;
     }
 
-    /* ABOUT */
+    /* ABOUT SECTION UPDATED */
     .about-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      padding: 40px;
+      padding: 60px;
       gap: 40px;
+      flex-wrap: wrap;
     }
 
     .about-text {
-      max-width: 500px;
+      flex: 1;
+      min-width: 300px;
       font-size: 18px;
       line-height: 1.6;
+      text-align: left;
+    }
+
+    .about-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
     }
 
     .about-image img {
-      width: 300px;
-      border-radius: 10px;
+      width: 450px;
+      max-width: 100%;
+      border-radius: 12px;
     }
 
     /* BANNER */
@@ -73,7 +77,7 @@
       font-weight: bold;
     }
 
-    /* GALLERY PREVIEW */
+    /* GALLERY */
     .gallery-preview {
       display: flex;
       flex-wrap: wrap;
@@ -103,22 +107,17 @@
       color: black;
       padding: 15px 30px;
       text-decoration: none;
-      font-size: 18px;
-      border-radius: 5px;
+      border-radius: 6px;
     }
 
-    .btn:hover {
-      background: #ddd;
-    }
-
-    /* FADE EFFECT */
-    .fade {
+    /* FADE ONLY WHEN IN VIEW */
+    .reveal {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(40px);
       transition: all 1s ease;
     }
 
-    .fade.show {
+    .reveal.show {
       opacity: 1;
       transform: translateY(0);
     }
@@ -130,16 +129,16 @@
 
 <header>
   <div class="logo">
-    <img src="https://via.placeholder.com/80" alt="Logo">
+    <img src="https://via.placeholder.com/80">
   </div>
   Vicki Paulus Art
 </header>
 
-<div class="tagline fade">
+<div class="tagline reveal">
   From seeing to creating emotion on canvas
 </div>
 
-<div class="about-container fade">
+<div class="about-container reveal">
 
   <div class="about-text">
     <p>
@@ -158,17 +157,16 @@
   </div>
 
   <div class="about-image">
-    <img src="https://via.placeholder.com/300" alt="Your photo">
+    <img src="https://via.placeholder.com/450">
   </div>
 
 </div>
 
-<div class="banner fade">
-  Don't just see.<br>
-  feel.
+<div class="banner reveal">
+  Don't just see.<br>feel.
 </div>
 
-<div class="gallery-preview fade">
+<div class="gallery-preview reveal">
   <img src="https://via.placeholder.com/200">
   <img src="https://via.placeholder.com/200">
   <img src="https://via.placeholder.com/200">
@@ -176,24 +174,23 @@
   <img src="https://via.placeholder.com/200">
 </div>
 
-<div class="button-container fade">
+<div class="button-container reveal">
   <a href="gallery.html" class="btn">See All Paintings</a>
 </div>
 
 <script>
-  const faders = document.querySelectorAll('.fade');
+  const elements = document.querySelectorAll('.reveal');
 
-  window.addEventListener('scroll', () => {
-    faders.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 50) {
-        el.classList.add('show');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
       }
     });
   });
+
+  elements.forEach(el => observer.observe(el));
 </script>
 
-</body>
-</html>
 </body>
 </html>
