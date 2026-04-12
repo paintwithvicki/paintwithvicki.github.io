@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Shop</title>
+  <title>Shop - Paintings</title>
 
   <style>
     body {
@@ -12,8 +12,28 @@
       text-align: center;
     }
 
+    /* TOP NAV */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 14px;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
     h1 {
-      padding: 80px 20px 20px;
+      padding: 100px 20px 20px;
     }
 
     /* GRID */
@@ -48,7 +68,7 @@
       font-weight: bold;
     }
 
-    /* ZOOM */
+    /* ZOOM OVERLAY */
     .overlay {
       position: fixed;
       top: 0;
@@ -68,13 +88,52 @@
       border-radius: 10px;
     }
 
+    /* BACK BUTTON (floating) */
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: white;
+      color: black;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 14px;
+      z-index: 1000;
+    }
+
+    /* BOTTOM NAV */
+    .bottom-nav {
+      margin: 60px 0;
+    }
+
+    .bottom-nav a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 16px;
+      background: white;
+      color: black;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
   </style>
 </head>
 
 <body>
 
+<!-- TOP NAV -->
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Shop</a>
+</div>
+
 <h1>Shop Paintings</h1>
 
+<!-- GRID -->
 <div class="grid">
 
   <div class="card" onclick="zoom(this)">
@@ -104,6 +163,16 @@
 
 </div>
 
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <a href="index.html">Home</a>
+  <a href="#top">Back to Top</a>
+</div>
+
+<!-- BACK BUTTON -->
+<a class="back-btn" href="index.html">← Back</a>
+
+<!-- ZOOM -->
 <div class="overlay" id="overlay" onclick="closeZoom()">
   <img id="zoomImg">
 </div>
